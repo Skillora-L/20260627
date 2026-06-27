@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>奕思瑞品牌全案升级 | Skillora-L</title>
+    <link rel="stylesheet" href="../src/styles.css" />
+    <style>
+      body { background: #050505; }
+      .case-page { width: min(1500px, calc(100vw - 96px)); margin: 0 auto; padding: 44px 0 120px; }
+      .case-page nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 86px; }
+      .case-page h1 { max-width: 1080px; margin: 0; color: #baff19; font-size: clamp(62px, 8vw, 136px); line-height: .9; letter-spacing: 0; }
+      .case-page .lead { max-width: 900px; margin: 34px 0 0; color: rgba(255,255,255,.74); font-size: 22px; line-height: 1.75; }
+      .doc-hero { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+      .doc-hero a { padding: 13px 18px; border-radius: 999px; background: #baff19; color: #071008; font-weight: 900; }
+      .case-visual-slices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 56px; }
+      .case-hero-img { aspect-ratio: 2 / 3; overflow: hidden; border: 1px solid rgba(255,255,255,.14); border-radius: 30px; background: rgba(255,255,255,.05); }
+      .case-hero-img img { width: 100%; height: 100%; object-fit: cover; }
+      .case-hero-img:nth-child(1) img { object-position: top center; }
+      .case-hero-img:nth-child(2) img { object-position: center center; }
+      .case-hero-img:nth-child(3) img { object-position: bottom center; }
+      .case-page-grid { display: grid; grid-template-columns: .8fr 1fr 1fr; gap: 22px; margin-top: 28px; }
+      .case-page-card { min-height: 270px; padding: 28px; border: 1px solid rgba(255,255,255,.13); border-radius: 24px; background: rgba(255,255,255,.05); }
+      .case-page-card h2 { margin: 0 0 18px; color: #baff19; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; }
+      .case-page-card p, .case-page-card li { color: rgba(255,255,255,.7); line-height: 1.8; }
+      @media (max-width: 900px) { .case-page { width: calc(100vw - 32px); } .case-page-grid, .case-visual-slices { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main class="case-page">
+      <nav><a class="logo-pill" href="../preview.html">Skillora-L</a><a class="nav-cta" href="../preview.html#projects">返回项目</a></nav>
+      <p class="eyebrow">Brand Strategy / FABE / Visual Identity</p>
+      <h1>奕思瑞品牌全案升级</h1>
+      <p class="lead">重塑品牌定位与线上视觉系统，让品牌从商品展示升级为更统一、更具溢价能力的视觉资产，并将 FABE 销售逻辑拆解为可复用的页面表达方式。</p>
+      <div class="doc-hero">
+        <a href="../项目经历-奕思瑞品牌全案升级.pdf" target="_blank" download>下载品牌全案升级 PDF</a>
+        <a href="../项目经历-奕思瑞品牌重塑.pdf" target="_blank" download>下载品牌重塑 PDF</a>
+      </div>
+      <div class="case-visual-slices">
+        <div class="case-hero-img"><img src="../public/assets/case-esr-fabe.png" alt="奕思瑞 FABE 项目详情页顶部" /></div>
+        <div class="case-hero-img"><img src="../public/assets/case-esr-fabe.png" alt="奕思瑞 FABE 项目详情页中段" /></div>
+        <div class="case-hero-img"><img src="../public/assets/case-esr-fabe.png" alt="奕思瑞 FABE 项目详情页底部" /></div>
+      </div>
+      <section class="case-page-grid">
+        <article class="case-page-card"><h2>Impact</h2><p>品牌视觉全线升级后，品牌定位更加精准，线上视觉更加统一，品牌溢价能力提升，店铺业绩较前增长约 30%。</p></article>
+        <article class="case-page-card"><h2>Strategy</h2><p>围绕品牌识别、产品价值、线上触点与用户认知统一设计语言，让消费者更快理解品牌调性、产品利益点和购买理由。</p></article>
+        <article class="case-page-card"><h2>Delivery</h2><p>完整方案以 PDF 文档承载，前端页面仅展示核心入口和关键视觉切片，避免长文档直接堆在页面中影响浏览节奏。</p></article>
+      </section>
+    </main>
+  </body>
+</html>

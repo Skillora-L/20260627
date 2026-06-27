@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AIGC 设计工作流开发 | Skillora-L</title>
+    <link rel="stylesheet" href="../src/styles.css" />
+    <style>
+      body { background: #050505; }
+      .case-page { width: min(1500px, calc(100vw - 96px)); margin: 0 auto; padding: 44px 0 120px; }
+      .case-page nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 86px; }
+      .case-page h1 { max-width: 1060px; margin: 0; color: #baff19; font-size: clamp(62px, 8vw, 136px); line-height: .9; letter-spacing: 0; }
+      .case-page .lead { max-width: 860px; margin: 34px 0 0; color: rgba(255,255,255,.74); font-size: 22px; line-height: 1.75; }
+      .case-visuals { display: grid; grid-template-columns: 1.1fr .9fr; gap: 18px; margin-top: 56px; }
+      .case-hero-img { min-height: 520px; overflow: hidden; border: 1px solid rgba(255,255,255,.14); border-radius: 30px; background: rgba(255,255,255,.05); }
+      .case-hero-img img { width: 100%; height: 100%; object-fit: cover; }
+      .case-page-grid { display: grid; grid-template-columns: .75fr 1fr 1fr; gap: 22px; margin-top: 28px; }
+      .case-page-card { min-height: 270px; padding: 28px; border: 1px solid rgba(255,255,255,.13); border-radius: 24px; background: rgba(255,255,255,.05); }
+      .case-page-card h2 { margin: 0 0 18px; color: #baff19; font-size: 14px; letter-spacing: .12em; text-transform: uppercase; }
+      .case-page-card p, .case-page-card li { color: rgba(255,255,255,.7); line-height: 1.8; }
+      .case-page-card ul { padding-left: 20px; margin: 0; }
+      @media (max-width: 900px) { .case-page { width: calc(100vw - 32px); } .case-visuals, .case-page-grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <main class="case-page">
+      <nav><a class="logo-pill" href="../preview.html">Skillora-L</a><a class="nav-cta" href="../preview.html#projects">返回项目</a></nav>
+      <p class="eyebrow">ComfyUI / libtv / Automation System</p>
+      <h1>AIGC 设计工作流开发</h1>
+      <p class="lead">搭建企业级 ComfyUI 工作流，将模型、LoRA、3D 渲染、场景生成与电商视觉任务组织成可复用的生产链路，让不懂 AI 的设计成员也能一键完成高频视觉任务。</p>
+      <div class="case-visuals">
+        <div class="case-hero-img"><img src="../public/assets/case-comfyui.png" alt="ComfyUI 工作流项目图" /></div>
+        <div class="case-hero-img"><img src="../public/assets/case-libtv.png" alt="libtv 生图模板项目图" /></div>
+      </div>
+      <section class="case-page-grid">
+        <article class="case-page-card"><h2>Impact</h2><p>多次获得公司月度创新奖、季度研发奖以及年度最佳奖，带领团队高质高量完成效果图产出，效果图点击与转化普遍提高。</p></article>
+        <article class="case-page-card"><h2>Execution</h2><ul><li>整合 Flux、SDXL 等多生态模型。</li><li>炼制企业多向定制 LoRA 模型。</li><li>融合 3D 渲染与 AI 生成。</li><li>开发一键优化、扩图、抠图、视角调整、局部修改、场景模特、人物换姿势等 20+ 节点。</li></ul></article>
+        <article class="case-page-card"><h2>Value</h2><p>把 AI 能力封装为稳定流程，降低团队使用门槛，提升电商视觉差异化与出图效率。</p></article>
+      </section>
+    </main>
+  </body>
+</html>

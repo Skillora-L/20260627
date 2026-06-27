@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Skillora-L | Portfolio</title>
+    <link rel="stylesheet" href="./src/styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero" id="top">
+        <img class="hero-bg" src="./public/assets/hero-cover.png" alt="Skillora-L 首屏封面" />
+        <div class="hero-shade"></div>
+        <header class="nav">
+          <a class="logo-pill" href="#top">Skillora-L</a>
+          <nav class="nav-links" aria-label="主导航">
+            <a href="#about">个人简介</a>
+            <a href="#strengths">个人优势</a>
+            <a href="#projects">项目经历</a>
+            <a href="#works">作品展示</a>
+          </nav>
+          <a class="nav-cta" href="#contact">联系我</a>
+        </header>
+
+        <div class="hero-content">
+          <p class="hero-role">品牌视觉总监 × AI 工作流架构师</p>
+          <h1><span>Skillora-L</span><small>Visual system portfolio</small></h1>
+          <p class="hero-copy">用视觉系统与 AI 工作流，让品牌内容更快、更准、更有辨识度。</p>
+          <div class="hero-metrics">
+            <span><b>300W</b>月均 GMV</span>
+            <span><b>20+</b>AI 工作流节点</span>
+            <span><b>21</b>人团队重塑</span>
+          </div>
+        </div>
+
+        <div class="case-orbit" id="caseOrbit">
+          <div class="case-title">
+            <span>爆款案例</span>
+            <p>Hover to reveal selected visuals</p>
+          </div>
+          <div class="case-track" id="caseTrack"><div class="case-row marquee-loop" id="caseRow"></div></div>
+        </div>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="section-head" data-reveal>
+          <p>WORK EXPERIENCE</p>
+          <h2>个人简介</h2>
+        </div>
+        <div class="about-grid">
+          <figure class="portrait-card" data-reveal data-tilt>
+            <img src="./public/assets/profile-visual.jpg" alt="个人视觉形象" />
+          </figure>
+          <div class="about-copy" data-reveal data-tilt>
+            <p class="eyebrow">ABOUT SKILLORA-L</p>
+            <h3>Hi, I am 刘豪政!</h3>
+            <p>五年电商设计经验，两年管理经验。长期深耕品牌策划、电商视觉、3D 渲染与 AIGC 工作流，擅长把品牌定位、视觉规范、AI 自动化节点和团队管理机制整合成可落地的设计生产系统。</p>
+            <div class="about-meta">
+              <span><b>设计定位</b>品牌视觉总监 / AI 工作流架构师</span>
+              <span><b>工作方式</b>视觉系统 × 自动化流程 × 增长验证</span>
+              <span><b>核心能力</b>视觉系统、AI 提效、团队管理、增长视觉</span>
+              <span><b>项目结果</b>Ozon No.2 / 300w GMV / 30% 增长</span>
+            </div>
+            <div class="about-numbers">
+              <strong><b>5年+</b><span>电商视觉经验</span></strong>
+              <strong><b>20+</b><span>自动化节点</span></strong>
+              <strong><b>21人</b><span>团队能力重塑</span></strong>
+            </div>
+          </div>
+        </div>
+        <div class="career-line" id="careerLine" data-reveal></div>
+      </section>
+
+      <section class="section strengths" id="strengths">
+        <div class="section-head" data-reveal>
+          <p>CORE STRENGTHS</p>
+          <h2>个人优势</h2>
+        </div>
+        <div class="strength-grid" id="strengthGrid"></div>
+      </section>
+
+      <section class="section projects" id="projects">
+        <div class="section-head" data-reveal>
+          <p>SELECTED PROJECTS</p>
+          <h2>项目经历</h2>
+        </div>
+        <div class="project-list" id="projectList"></div>
+      </section>
+
+      <section class="section works" id="works">
+        <div class="section-head" data-reveal>
+          <p>SELECTED WORKS</p>
+          <h2>效果图作品展示</h2>
+        </div>
+        <div class="work-gallery" id="workGallery"></div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="contact-inner" data-reveal>
+          <p>Skillora-L / Brand Visual Director × AI Workflow Architect</p>
+          <h2>让品牌内容更快、更准、更有辨识度。</h2>
+          <div>
+            <a href="mailto:2424619121@qq.com">2424619121@qq.com</a>
+            <a href="tel:16680458050">16680458050</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const heroCards = [
+        { title: "教师节花束", src: "./public/assets/hero-extra-1.jpg" },
+        { title: "儿童口琴", src: "./public/assets/hero-extra-2.jpg" },
+        { title: "儿童手机", src: "./public/assets/hero-extra-3.jpg" },
+        { title: "缝缝乐", src: "./public/assets/hero-extra-4.jpg" },
+        { title: "产品渲染", src: "./public/assets/hero-card-1.jpg" },
+        { title: "详情页视觉", src: "./public/assets/hero-card-2.jpg" },
+        { title: "AI 生图", src: "./public/assets/hero-card-3.jpg" },
+        { title: "实拍精修", src: "./public/assets/hero-card-4.jpg" },
+        { title: "爆款主图", src: "./public/assets/hero-card-5.jpg" },
+        { title: "活动视觉", src: "./public/assets/hero-card-6.jpg" }
+      ];
+      const timeline = [
+        { period: "2022.03 - 2022.06", company: "华尔集团", role: "3D 设计师", text: "负责产品建模、样机渲染与场景完善，建立商业渲染、结构理解与材质表达能力。" },
+        { period: "2022.06 - 2023.11", company: "郑州景乔信息科技有限公司", role: "设计总监 / 经理", text: "主导母婴玩具类目视觉优化，推进团队协作、Web UI 学习与效果图产出规范，累计沉淀大量电商视觉资产。" },
+        { period: "2023.12 - 2025.12", company: "长沙越途电子商务有限公司", role: "视觉设计师 / AI 工作流负责人", text: "将 ComfyUI 引入场景生成、模特生成、局部修改与电商视觉模板生产，沉淀可复用的 AIGC 生产流程。" },
+        { period: "2026.01 - 2026.06", company: "MirCamping", role: "设计总监 / 经理", text: "主导品牌全案、VI 规范和 AI 生图模板落地，推动 Ozon 店铺排名从第 30 名提升至第 2 名。" }
+      ];
+      const strengths = [
+        { title: "品牌升级能力", text: "从定位、竞品、用户画像到 Logo、VI、线上触点与品牌白皮书，建立更统一、更有溢价感的视觉资产。", tags: ["Brand Book", "VI System", "Premium Visual"] },
+        { title: "AI 落地能力", text: "基于 ComfyUI、libtv、LoRA 与 3D 渲染，把 AI 能力封装成团队可直接使用的生产流程。", tags: ["ComfyUI", "LoRA", "Automation"] },
+        { title: "视觉系统搭建能力", text: "将主图、详情页、包装、活动页和内容模板统一到同一套设计语言中，减少重复沟通和风格漂移。", tags: ["Visual System", "Design Rules", "Templates"] },
+        { title: "团队管理能力", text: "搭建项目中台、AI 中台和能力矩阵，完成 21 人团队能力重塑，让能力与激励可视化。", tags: ["Design Ops", "Skill Matrix", "Training"] },
+        { title: "电商增长能力", text: "理解点击、转化、排名和品牌内容之间的关系，让视觉方案服务于真实商业结果。", tags: ["GMV Growth", "Conversion", "Ozon / Tmall"] }
+      ];
+      const projects = [
+        { no: "01", title: "AIGC 设计工作流开发", role: "技术架构负责人", period: "2023.12 - 2025.12", link: "./cases/aigc-workflow.html", image: "./public/assets/case-comfyui.png", result: "沉淀 20+ 自动化工作流节点，多次获得月度创新奖、季度研发奖与年度最佳奖。", text: "基于 ComfyUI 整合 Flux、SDXL、LoRA、3D 渲染与 libtv 模板，把一键优化、扩图、抠图、视角调整、局部修改、场景模特生成等能力封装为团队可复用的生产系统。", tags: ["ComfyUI", "20+ Nodes", "LoRA", "Design Ops"] },
+        { no: "02", title: "奕思瑞品牌全案升级", role: "品牌视觉升级负责人", period: "2025.01 - 2025.06", link: "./cases/esr-brand.html", image: "./public/assets/case-esr-fabe.png", result: "品牌定位更精准，线上视觉更统一，店铺业绩较前增长约 30%。", text: "围绕品牌识别、产品价值与线上触点重建视觉语言，并将 FABE 销售逻辑转译为更清晰的详情页与内容模板。", tags: ["Brand System", "FABE", "30% Growth", "VI Upgrade"] },
+        { no: "03", title: "MirCamping 品牌视觉升级", role: "品牌视觉升级策划总监", period: "2026.01 - 2026.04", link: "./cases/mircamping.html", image: "./public/assets/work-2.jpg", result: "月均 GMV 从 100w 提升至 300w，Ozon 店铺排名从第 30 名提升至第 2 名。", text: "针对俄罗斯 Ozon 用户画像与竞品视觉，完成品牌白皮书、Logo、视觉体系与规范，并用 ComfyUI + libtv 提升旧品视觉迭代效率。", tags: ["Ozon No.2", "300w GMV", "Brand Book", "AI Template"] }
+      ];
+      const workImages = Array.from({ length: 10 }, (_, index) => `./public/assets/work-${index + 1}.jpg`);
+
+      const openLightbox = (src) => {
+        const box = document.createElement("button");
+        box.className = "lightbox";
+        box.setAttribute("aria-label", "关闭大图");
+        box.innerHTML = `<img src="${src}" alt="作品大图预览">`;
+        box.onclick = () => box.remove();
+        document.body.appendChild(box);
+      };
+
+      caseRow.innerHTML = [...heroCards, ...heroCards].map((item) => `<button class="orbit-card" data-src="${item.src}" data-tilt><span>${item.title}</span><div class="orbit-glass">案例预览</div><img src="${item.src}" alt="${item.title}作品案例预览"></button>`).join("");
+      careerLine.innerHTML = timeline.map((item) => `<article data-tilt><i></i><span>${item.period}</span><h4>${item.company}</h4><strong>${item.role}</strong><p>${item.text}</p></article>`).join("");
+      strengthGrid.innerHTML = strengths.map((item, index) => `<article class="strength-card" data-reveal data-tilt><small>${String(index + 1).padStart(2, "0")}</small><h3>${item.title}<i>.</i></h3><p>${item.text}</p><div>${item.tags.map((tag) => `<em>${tag}</em>`).join("")}</div></article>`).join("");
+      projectList.innerHTML = projects.map((project) => `<article class="project-row" data-reveal data-tilt><a class="project-cover" href="${project.link}" target="_blank" rel="noreferrer"><img src="${project.image}" alt="${project.title} 封面"></a><div class="project-copy"><span>${project.no} / ${project.period}</span><h3>${project.title}</h3><p class="project-role">${project.role}</p><strong>${project.result}</strong><p class="project-detail">${project.text}</p><div>${project.tags.map((tag) => `<em>${tag}</em>`).join("")}</div><a class="project-link" href="${project.link}" target="_blank" rel="noreferrer">查看项目详情</a></div></article>`).join("");
+      workGallery.innerHTML = workImages.map((src, index) => `<button class="work-tile tile-${(index % 4) + 1}" data-src="${src}" data-reveal data-tilt><img src="${src}" alt="效果图作品 ${index + 1}" loading="lazy"><span>${["产品渲染", "实拍精修", "AI 生图", "详情页视觉"][index % 4]}</span></button>`).join("");
+
+      document.addEventListener("click", (event) => {
+        const target = event.target.closest("[data-src]");
+        if (target) openLightbox(target.dataset.src);
+      });
+      document.addEventListener("pointerover", (event) => {
+        const card = event.target.closest(".orbit-card");
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.left + rect.width / 2;
+        caseOrbit.classList.toggle("center-pop", Math.abs(cardCenter - innerWidth / 2) < 190);
+      });
+      document.addEventListener("pointerout", (event) => {
+        if (event.target.closest(".orbit-card")) caseOrbit.classList.remove("center-pop");
+      });
+      caseTrack.addEventListener("wheel", (event) => {
+        if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
+        event.preventDefault();
+        caseTrack.scrollLeft += event.deltaY;
+      }, { passive: false });
+      window.addEventListener("pointermove", (event) => {
+        const x = event.clientX / innerWidth - 0.5;
+        const y = event.clientY / innerHeight - 0.5;
+        document.documentElement.style.setProperty("--mx", x.toFixed(4));
+        document.documentElement.style.setProperty("--my", y.toFixed(4));
+        const card = event.target.closest("[data-tilt]");
+        if (!card) return;
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty("--px", `${event.clientX - rect.left}px`);
+        card.style.setProperty("--py", `${event.clientY - rect.top}px`);
+        card.style.setProperty("--rx", `${(((event.clientY - rect.top) / rect.height - 0.5) * -8).toFixed(2)}deg`);
+        card.style.setProperty("--ry", `${(((event.clientX - rect.left) / rect.width - 0.5) * 8).toFixed(2)}deg`);
+      });
+      document.addEventListener("pointerout", (event) => {
+        const card = event.target.closest("[data-tilt]");
+        if (!card) return;
+        card.style.setProperty("--rx", "0deg");
+        card.style.setProperty("--ry", "0deg");
+      });
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add("is-visible"));
+      }, { threshold: 0.16, rootMargin: "0px 0px -10% 0px" });
+      document.querySelectorAll("[data-reveal]").forEach((item, index) => {
+        item.style.setProperty("--delay", `${(index % 7) * 70}ms`);
+        observer.observe(item);
+      });
+    </script>
+  </body>
+</html>
