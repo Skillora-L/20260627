@@ -21,6 +21,8 @@ const heroCards = [
   { title: "坐姿矫正器", src: "/assets/boom-16.jpg" }
 ];
 
+const optimizedAsset = (src) => src.replace("/assets/", "/assets/optimized/").replace(/\.(png|jpe?g)$/i, ".jpg");
+
 const timeline = [
   { period: "2022.03 - 2022.06", company: "华尔集团", role: "3D 设计师", text: "负责产品建模、样机渲染与场景完善，建立商业渲染、结构理解与材质表达能力。" },
   { period: "2022.06 - 2023.11", company: "郑州景乔信息科技有限公司", role: "设计总监 / 经理", text: "主导母婴玩具类目视觉优化，推进团队协作、Web UI 学习与效果图产出规范，累计沉淀大量电商视觉资产。" },
@@ -218,7 +220,7 @@ function Hero({ onPreview }) {
 
   return (
     <section className="hero" id="top">
-      <img className="hero-bg" src="/assets/hero-cover.png" alt="Skillora-L 首屏封面" />
+      <img className="hero-bg" src="/assets/optimized/hero-cover.jpg" alt="Skillora-L 首屏封面" fetchPriority="high" decoding="async" />
       <div className="hero-shade" />
       <Navbar />
       <div className="hero-content">
@@ -243,7 +245,7 @@ function Hero({ onPreview }) {
               <button className="orbit-card" key={`${item.src}-${index}`} onClick={() => onPreview(item.src)} onPointerEnter={onCardEnter} onPointerLeave={onCardLeave} data-tilt>
                 <span>{item.title}</span>
                 <div className="orbit-glass">案例预览</div>
-                <img src={item.src} alt={`${item.title}作品案例预览`} />
+                <img src={optimizedAsset(item.src)} alt={`${item.title}作品案例预览`} loading="lazy" decoding="async" />
               </button>
             ))}
           </div>
@@ -268,7 +270,7 @@ function About() {
       <SectionHead eyebrow="WORK EXPERIENCE" title="个人简介" />
       <div className="about-grid">
         <figure className="portrait-card" data-reveal data-tilt>
-          <img src="/assets/profile-visual.jpg" alt="个人视觉形象" />
+          <img src="/assets/profile-photo.jpg" alt="刘豪政个人照片" loading="lazy" decoding="async" />
         </figure>
         <div className="about-copy" data-reveal data-tilt>
           <p className="eyebrow">ABOUT SKILLORA-L</p>
@@ -327,7 +329,7 @@ function Projects() {
         {projects.map((project) => (
           <article className="project-row" key={project.title} data-reveal data-tilt>
             <a className="project-cover" href={project.link} target="_blank" rel="noreferrer">
-              <img src={project.image} alt={`${project.title} 封面`} />
+              <img src={optimizedAsset(project.image)} alt={`${project.title} 封面`} loading="lazy" decoding="async" />
             </a>
             <div className="project-copy">
               <span>{project.no} / {project.period}</span>
@@ -397,7 +399,7 @@ function Works({ onPreview }) {
         <div className={`single-work-wrap ${showAllWorks ? "is-expanded" : ""}`}>
         <div className="single-work-grid">
           <button className="single-work-card is-featured" key={featuredWork.src} onClick={() => onPreview(featuredWork.src)} data-reveal data-tilt>
-            <img src={featuredWork.src} alt={`${featuredWork.title} 1`} loading="lazy" />
+            <img src={optimizedAsset(featuredWork.src)} alt={`${featuredWork.title} 1`} loading="lazy" decoding="async" />
             <span>{featuredWork.title}</span>
           </button>
           <div className="single-work-columns">
@@ -405,7 +407,7 @@ function Works({ onPreview }) {
               <div className="single-work-column" key={`work-column-${columnIndex}`}>
                 {column.map((item, index) => (
                   <button className={`single-work-card single-${((columnIndex + index) % 6) + 1}`} key={`${item.src}-${columnIndex}-${index}`} onClick={() => onPreview(item.src)} data-reveal data-tilt>
-                    <img src={item.src} alt={`${item.title} ${index + 1}`} loading="lazy" />
+                    <img src={optimizedAsset(item.src)} alt={`${item.title} ${index + 1}`} loading="lazy" decoding="async" />
                     <span>{item.title}</span>
                   </button>
                 ))}
@@ -425,7 +427,7 @@ function Works({ onPreview }) {
         <div className="detail-work-grid">
           {detailWorks.map((item, index) => (
           <button className="detail-work-card" key={item.src} onClick={() => onPreview(item.src)} onWheelCapture={onDetailWheel} data-reveal data-tilt>
-            <img src={item.src} alt={`${item.title} ${index + 1}`} loading="lazy" />
+            <img src={optimizedAsset(item.src)} alt={`${item.title} ${index + 1}`} loading="lazy" decoding="async" />
             <span>{item.title}</span>
           </button>
           ))}
@@ -459,7 +461,7 @@ function Lightbox({ src, onClose }) {
 
   return (
     <button className="lightbox" onClick={onClose} aria-label="关闭大图">
-      <img src={src} alt="作品大图预览" />
+      <img src={src} alt="作品大图预览" decoding="async" />
     </button>
   );
 }

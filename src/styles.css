@@ -43,14 +43,14 @@ img { display: block; max-width: 100%; }
   min-height: 100svh;
   overflow: hidden;
   isolation: isolate;
-  background: url("/assets/hero-cover.png") center 43% / cover no-repeat;
+  background: url("/assets/optimized/hero-cover.jpg") center 43% / cover no-repeat;
 }
 .hero::before {
   content: "";
   position: absolute;
   inset: -28px;
   z-index: -4;
-  background: url("/assets/hero-cover.png") center 43% / cover no-repeat;
+  background: url("/assets/optimized/hero-cover.jpg") center 43% / cover no-repeat;
   filter: blur(28px) brightness(.58) saturate(.9);
   transform: scale(1.08);
 }
@@ -365,6 +365,8 @@ img { display: block; max-width: 100%; }
   width: min(var(--max), calc(100vw - var(--page) * 2));
   margin: 0 auto;
   padding: clamp(86px, 9vw, 142px) 0;
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
 }
 .section-head {
   display: block;

@@ -1,0 +1,15 @@
+.git
+.agents
+.codex
+node_modules
+dist
+*.log
+preview*.html
+
+# Local reference/source materials are already copied into public/assets when needed.
+作品
+新建文件夹
+/*.jpg
+/*.png
+/*.pdf
+/*.xlsx
