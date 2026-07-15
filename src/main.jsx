@@ -25,9 +25,9 @@ const optimizedAsset = (src) => src.replace("/assets/", "/assets/optimized/").re
 
 const timeline = [
   { period: "2022.03 - 2022.06", company: "华尔集团", role: "3D 设计师", text: "负责产品建模、样机渲染与场景完善，建立商业渲染、结构理解与材质表达能力。" },
-  { period: "2022.06 - 2023.11", company: "郑州景乔信息科技有限公司", role: "设计总监 / 经理", text: "主导母婴玩具类目视觉优化，推进团队协作、Web UI 学习与效果图产出规范，累计沉淀大量电商视觉资产。" },
-  { period: "2023.12 - 2025.12", company: "长沙越途电子商务有限公司", role: "视觉设计师 / AI 工作流负责人", text: "将 ComfyUI 引入场景生成、模特生成、局部修改与电商视觉模板生产，沉淀可复用的 AIGC 生产流程。" },
-  { period: "2026.01 - 2026.06", company: "MirCamping", role: "设计总监 / 经理", text: "主导品牌全案、VI 规范和 AI 生图模板落地，推动 Ozon 店铺排名从第 30 名提升至第 2 名。" }
+  { period: "2022.06 - 2023.11", company: "郑州景乔信息科技有限公司", role: "设计主管", text: "负责科巢旗舰店的电商视觉升级与效果图规范建设，推动主图、详情页、场景渲染和团队协作流程标准化，沉淀可复用的母婴类目视觉资产。" },
+  { period: "2023.12 - 2025.12", company: "长沙越途电子商务有限公司", role: "设计总监 / AI 架构负责人", text: "将 ComfyUI 引入场景生成、模特生成、局部修改与电商视觉模板生产，搭建设计团队可复用的 AIGC 生产流程与自动化节点体系。" },
+  { period: "2026.01 - 2026.06", company: "MirCamping", role: "设计总监 / AI 架构负责人", text: "主导跨境户外品牌视觉升级、VI 规范和 AI 生图模板落地，推动 Ozon 店铺排名从第 30 名提升至第 2 名。" }
 ];
 
 const strengths = [
@@ -76,21 +76,19 @@ const projects = [
 
 const workSingles = [
   { src: "/assets/work-show-29.png", title: "轮船玩具" },
-  { src: "/assets/work-show-19.png", title: "弹珠机" },
+  { src: "/assets/work-show-36.jpg", title: "信任背书" },
   { src: "/assets/work-show-35.png", title: "太空闯关大冒险" },
   { src: "/assets/work-show-27.png", title: "火箭储钱罐" },
-  { src: "/assets/work-show-36.jpg", title: "信任背书" },
+  { src: "/assets/work-show-19.png", title: "弹珠机" },
   { src: "/assets/work-show-06.jpg", title: "彩窗磁力片" },
   { src: "/assets/work-show-07.jpg", title: "彩窗磁力片" },
   { src: "/assets/work-show-08.jpg", title: "彩窗磁力片" },
-  { src: "/assets/work-show-30.png", title: "品牌背书" },
   { src: "/assets/work-show-01.jpg", title: "5档计算器" },
   { src: "/assets/work-show-02.jpg", title: "安抚玩偶" },
   { src: "/assets/work-show-03.png", title: "安抚鸭" },
   { src: "/assets/work-show-04.png", title: "澳蕾诺" },
   { src: "/assets/work-show-05.jpg", title: "吧唧打印机" },
   { src: "/assets/work-show-09.jpg", title: "茶房坳" },
-  { src: "/assets/work-show-10.png", title: "产品A+" },
   { src: "/assets/work-show-11.jpg", title: "超轻黏土" },
   { src: "/assets/work-show-12.jpg", title: "超轻黏土" },
   { src: "/assets/work-show-13.png", title: "超轻黏土" },
@@ -106,7 +104,6 @@ const workSingles = [
   { src: "/assets/work-show-24.png", title: "儿童玩具车" },
   { src: "/assets/work-show-25.png", title: "儿童玩具车" },
   { src: "/assets/work-show-26.jpg", title: "缝缝乐" },
-  { src: "/assets/work-show-28.jpg", title: "六面体" },
   { src: "/assets/work-show-31.jpg", title: "品牌调性附加" },
   { src: "/assets/work-show-32.jpg", title: "品牌物料" },
   { src: "/assets/work-show-33.jpg", title: "水果清洗剂" },
