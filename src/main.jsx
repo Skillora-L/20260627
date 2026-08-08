@@ -239,7 +239,7 @@ function Hero({ onPreview }) {
         <div className="case-track" ref={stripRef} onWheel={onWheel}>
           <div className="case-row">
             {cards.map((item, index) => (
-              <button className="orbit-card" key={`${item.src}-${index}`} onClick={() => onPreview(item.src)} onPointerEnter={onCardEnter} onPointerLeave={onCardLeave} data-tilt>
+              <button className="orbit-card" key={`${item.src}-${index}`} onClick={() => onPreview(optimizedAsset(item.src))} onPointerEnter={onCardEnter} onPointerLeave={onCardLeave} data-tilt>
                 <span>{item.title}</span>
                 <div className="orbit-glass">案例预览</div>
                 <img src={optimizedAsset(item.src)} alt={`${item.title}作品案例预览`} loading="lazy" decoding="async" />
@@ -395,7 +395,7 @@ function Works({ onPreview }) {
         </div>
         <div className={`single-work-wrap ${showAllWorks ? "is-expanded" : ""}`}>
         <div className="single-work-grid">
-          <button className="single-work-card is-featured" key={featuredWork.src} onClick={() => onPreview(featuredWork.src)} data-reveal data-tilt>
+          <button className="single-work-card is-featured" key={featuredWork.src} onClick={() => onPreview(optimizedAsset(featuredWork.src))} data-reveal data-tilt>
             <img src={optimizedAsset(featuredWork.src)} alt={`${featuredWork.title} 1`} loading="lazy" decoding="async" />
             <span>{featuredWork.title}</span>
           </button>
@@ -403,7 +403,7 @@ function Works({ onPreview }) {
             {restWorkColumns.map((column, columnIndex) => (
               <div className="single-work-column" key={`work-column-${columnIndex}`}>
                 {column.map((item, index) => (
-                  <button className={`single-work-card single-${((columnIndex + index) % 6) + 1}`} key={`${item.src}-${columnIndex}-${index}`} onClick={() => onPreview(item.src)} data-reveal data-tilt>
+                  <button className={`single-work-card single-${((columnIndex + index) % 6) + 1}`} key={`${item.src}-${columnIndex}-${index}`} onClick={() => onPreview(optimizedAsset(item.src))} data-reveal data-tilt>
                     <img src={optimizedAsset(item.src)} alt={`${item.title} ${index + 1}`} loading="lazy" decoding="async" />
                     <span>{item.title}</span>
                   </button>
@@ -423,7 +423,7 @@ function Works({ onPreview }) {
         </div>
         <div className="detail-work-grid">
           {detailWorks.map((item, index) => (
-          <button className="detail-work-card" key={item.src} onClick={() => onPreview(item.src)} onWheelCapture={onDetailWheel} data-reveal data-tilt>
+          <button className="detail-work-card" key={item.src} onClick={() => onPreview(optimizedAsset(item.src))} onWheelCapture={onDetailWheel} data-reveal data-tilt>
             <img src={optimizedAsset(item.src)} alt={`${item.title} ${index + 1}`} loading="lazy" decoding="async" />
             <span>{item.title}</span>
           </button>
