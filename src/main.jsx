@@ -22,6 +22,8 @@ const heroCards = [
 ];
 
 const optimizedAsset = (src) => src.replace("/assets/", "/assets/optimized/").replace(/\.(png|jpe?g)$/i, ".jpg");
+const INITIAL_WORK_COUNT = 16;
+const tinyPixel = "data:image/gif;base64,R0lGODlhAQABAAAAACw=";
 
 const timeline = [
   { period: "2022.03 - 2022.06", company: "华尔集团", role: "3D 设计师", text: "负责产品建模、样机渲染与场景完善，建立商业渲染、结构理解与材质表达能力。" },
@@ -187,6 +189,7 @@ function Navbar() {
 function Hero({ onPreview }) {
   const stripRef = useRef(null);
   const orbitRef = useRef(null);
+  const [loadCaseImages, setLoadCaseImages] = useState(false);
   const cards = useMemo(() => heroCards, []);
 
   useEffect(() => {
@@ -198,6 +201,16 @@ function Hero({ onPreview }) {
     return () => window.removeEventListener("scroll", updateOrbitState);
   }, []);
 
+  useEffect(() => {
+    const load = () => setLoadCaseImages(true);
+    const timer = window.setTimeout(load, 1200);
+    const idle = "requestIdleCallback" in window ? window.requestIdleCallback(load, { timeout: 1800 }) : null;
+    return () => {
+      window.clearTimeout(timer);
+      if (idle && "cancelIdleCallback" in window) window.cancelIdleCallback(idle);
+    };
+  }, []);
+
   const onWheel = (event) => {
     if (!stripRef.current || Math.abs(event.deltaX) > Math.abs(event.deltaY)) return;
     event.preventDefault();
@@ -205,6 +218,7 @@ function Hero({ onPreview }) {
   };
 
   const onCardEnter = (event) => {
+    setLoadCaseImages(true);
     const rect = event.currentTarget.getBoundingClientRect();
     const cardCenter = rect.left + rect.width / 2;
     const pageCenter = window.innerWidth / 2;
@@ -242,7 +256,7 @@ function Hero({ onPreview }) {
               <button className="orbit-card" key={`${item.src}-${index}`} onClick={() => onPreview(optimizedAsset(item.src))} onPointerEnter={onCardEnter} onPointerLeave={onCardLeave} data-tilt>
                 <span>{item.title}</span>
                 <div className="orbit-glass">案例预览</div>
-                <img src={optimizedAsset(item.src)} alt={`${item.title}作品案例预览`} loading="lazy" decoding="async" />
+                <img src={loadCaseImages ? optimizedAsset(item.src) : tinyPixel} alt={`${item.title}作品案例预览`} loading="lazy" decoding="async" fetchPriority="low" />
               </button>
             ))}
           </div>
@@ -326,7 +340,7 @@ function Projects() {
         {projects.map((project) => (
           <article className="project-row" key={project.title} data-reveal data-tilt>
             <a className="project-cover" href={project.link} target="_blank" rel="noreferrer">
-              <img src={optimizedAsset(project.image)} alt={`${project.title} 封面`} loading="lazy" decoding="async" />
+            <img src={optimizedAsset(project.image)} alt={`${project.title} 封面`} loading="lazy" decoding="async" fetchPriority="low" />
             </a>
             <div className="project-copy">
               <span>{project.no} / {project.period}</span>
@@ -346,11 +360,12 @@ function Projects() {
 
 function Works({ onPreview }) {
   const [showAllWorks, setShowAllWorks] = useState(false);
+  const visibleSingles = showAllWorks ? workSingles : workSingles.slice(0, INITIAL_WORK_COUNT);
   const featuredWork = workSingles[0];
-  const leadWorks = workSingles.slice(1, 4);
+  const leadWorks = visibleSingles.slice(1, 4);
   const restWorkColumns = leadWorks.map((lead, columnIndex) => [
     lead,
-    ...workSingles.slice(4).filter((_, index) => index % 3 === columnIndex)
+    ...visibleSingles.slice(4).filter((_, index) => index % 3 === columnIndex)
   ]);
 
   const onDetailWheel = (event) => {
@@ -396,7 +411,7 @@ function Works({ onPreview }) {
         <div className={`single-work-wrap ${showAllWorks ? "is-expanded" : ""}`}>
         <div className="single-work-grid">
           <button className="single-work-card is-featured" key={featuredWork.src} onClick={() => onPreview(optimizedAsset(featuredWork.src))} data-reveal data-tilt>
-            <img src={optimizedAsset(featuredWork.src)} alt={`${featuredWork.title} 1`} loading="lazy" decoding="async" />
+            <img src={optimizedAsset(featuredWork.src)} alt={`${featuredWork.title} 1`} loading="lazy" decoding="async" fetchPriority="low" />
             <span>{featuredWork.title}</span>
           </button>
           <div className="single-work-columns">
@@ -404,7 +419,7 @@ function Works({ onPreview }) {
               <div className="single-work-column" key={`work-column-${columnIndex}`}>
                 {column.map((item, index) => (
                   <button className={`single-work-card single-${((columnIndex + index) % 6) + 1}`} key={`${item.src}-${columnIndex}-${index}`} onClick={() => onPreview(optimizedAsset(item.src))} data-reveal data-tilt>
-                    <img src={optimizedAsset(item.src)} alt={`${item.title} ${index + 1}`} loading="lazy" decoding="async" />
+                    <img src={optimizedAsset(item.src)} alt={`${item.title} ${index + 1}`} loading="lazy" decoding="async" fetchPriority="low" />
                     <span>{item.title}</span>
                   </button>
                 ))}
@@ -424,7 +439,7 @@ function Works({ onPreview }) {
         <div className="detail-work-grid">
           {detailWorks.map((item, index) => (
           <button className="detail-work-card" key={item.src} onClick={() => onPreview(optimizedAsset(item.src))} onWheelCapture={onDetailWheel} data-reveal data-tilt>
-            <img src={optimizedAsset(item.src)} alt={`${item.title} ${index + 1}`} loading="lazy" decoding="async" />
+            <img src={optimizedAsset(item.src)} alt={`${item.title} ${index + 1}`} loading="lazy" decoding="async" fetchPriority="low" />
             <span>{item.title}</span>
           </button>
           ))}
