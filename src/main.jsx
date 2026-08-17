@@ -126,17 +126,40 @@ const detailWorks = [
 
 function useReveal() {
   useEffect(() => {
+    const observed = new WeakSet();
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) entry.target.classList.add("is-visible");
       });
     }, { threshold: 0.16, rootMargin: "0px 0px -10% 0px" });
 
-    document.querySelectorAll("[data-reveal]").forEach((el, index) => {
-      el.style.setProperty("--delay", `${(index % 7) * 70}ms`);
-      observer.observe(el);
+    const observeRevealItems = (root = document) => {
+      root.querySelectorAll("[data-reveal]").forEach((el, index) => {
+        if (observed.has(el)) return;
+        observed.add(el);
+        el.style.setProperty("--delay", `${(index % 7) * 70}ms`);
+        observer.observe(el);
+      });
+    };
+
+    observeRevealItems();
+
+    const mutationObserver = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (!(node instanceof Element)) return;
+          if (node.matches("[data-reveal]")) observeRevealItems(node.parentElement || document);
+          else observeRevealItems(node);
+        });
+      });
     });
-    return () => observer.disconnect();
+
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    return () => {
+      mutationObserver.disconnect();
+      observer.disconnect();
+    };
   }, []);
 }
 
