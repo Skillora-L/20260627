@@ -849,27 +849,7 @@ img { display: block; max-width: 100%; }
 .detail-head { margin-top: 44px; }
 .single-work-wrap {
   position: relative;
-  max-height: 1680px;
-  overflow: hidden;
-  transition: max-height .9s var(--ease);
-}
-.single-work-wrap::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 180px;
-  pointer-events: none;
-  background: linear-gradient(180deg, transparent, #050505 82%);
-  opacity: 1;
-  transition: opacity .45s var(--ease);
-}
-.single-work-wrap.is-expanded {
-  max-height: 9999px;
-}
-.single-work-wrap.is-expanded::after {
-  opacity: 0;
+  /* The React item count controls collapse; never crop complete cards. */
 }
 .single-work-grid {
   display: block;
@@ -1132,4 +1112,87 @@ img { display: block; max-width: 100%; }
     width: 100%;
   }
   .detail-work-grid { grid-template-columns: 1fr; }
+}
+
+.section-heading-line { display: flex; align-items: baseline; flex-wrap: wrap; gap: 14px 28px; }
+.work-software { color: rgba(255,255,255,.72); font-size: clamp(14px, 1.2vw, 22px); font-weight: 650; line-height: 1.6; }
+.template-cover { position: relative; flex-shrink: 0; padding: 24px; background: radial-gradient(ellipse at 80% 90%, rgba(186,255,25,.17), transparent 65%), #151812; border: 1px solid rgba(186,255,25,.18); }
+.template-cover-label { position: relative; z-index: 1; color: var(--acid); font-size: 12px; font-weight: 800; letter-spacing: .14em; }
+.template-cover-number { position: absolute; right: 20px; bottom: 0; color: rgba(186,255,25,.12); font-size: 140px; font-weight: 900; line-height: 1; }
+.template-visual { position: absolute; left: 24px; bottom: 25px; width: 58%; height: 125px; border: 1px solid rgba(186,255,25,.45); border-radius: 12px; padding: 20px 14px 14px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; transform: rotate(-5deg); }
+.template-visual i { border-radius: 5px; background: rgba(186,255,25,.18); border: 1px solid rgba(186,255,25,.2); }
+.template-ai .template-visual { border: 0; transform: rotate(0); align-items: center; }
+.template-ai .template-visual i { height: 60px; border-radius: 14px; transform: rotate(45deg); }
+.template-pending .template-visual { border-style: dashed; transform: none; }
+.template-pending .template-visual i { background: transparent; border-style: dashed; }
+.project-copy .project-template-status { margin-top: auto; padding-top: 26px; color: rgba(255,255,255,.48); font-size: 13px; letter-spacing: 0; }
+
+/* Match the detail gallery's three-column, two-row presentation. */
+#ai-videos { scroll-margin-top: 100px; }
+.video-work-card {
+  position: relative;
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #101010;
+}
+.video-work-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: contain;
+  background: #050505;
+}
+.video-work-card figcaption {
+  padding: 14px 16px;
+  color: rgba(255,255,255,.82);
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+}
+.video-work-card:focus-within { border-color: var(--acid); }
+
+/* Reserve each image's full visible area; trim only source-image white borders. */
+.single-work-card .work-image-frame,
+.lightbox .work-image-frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: transparent;
+  backdrop-filter: none;
+}
+.single-work-card .work-image-frame img,
+.lightbox .work-image-frame img {
+  position: absolute;
+  display: block;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  border-radius: 0;
+  clip-path: none;
+  transform: none;
+  opacity: 1;
+}
+.lightbox .work-image-frame {
+  width: min(1500px, 94vw, calc(90vh * var(--image-ratio)));
+}
+.single-work-card:hover .work-image-frame img,
+.single-work-card.is-visible:hover .work-image-frame img {
+  transform: none;
+}
+
+/* Source detail images include a one-pixel pale perimeter. Hide it while
+   preserving the long-image scroll and keeping the final edge inside the tile. */
+.detail-work-card { border: 0; }
+.detail-work-card img {
+  display: block;
+  width: calc(100% + 6px);
+  max-width: none;
+  margin: -3px;
 }
